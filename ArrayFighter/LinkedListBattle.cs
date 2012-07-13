@@ -14,7 +14,7 @@ namespace ConsoleApplication1
         public LinkedListBattle()
         {
             var x = new LinkedList<int>();
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.AddLast(i);
             }
@@ -38,7 +38,7 @@ namespace ConsoleApplication1
         public bool UnknownSizeInsertSpeed()
         {
             var x = new LinkedList<int>();
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.AddLast(i);
             }
@@ -50,7 +50,7 @@ namespace ConsoleApplication1
         public bool ReadEveryItemForward()
         {
             var x = new LinkedList<int>();
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.AddLast(i);
             }
@@ -62,12 +62,12 @@ namespace ConsoleApplication1
         public bool GetItemXMinusOne()
         {
             var item = CollectionOfItems.First;
-            for (int i = 0; i < Program.TestSize - 1; i++)
+            for (int i = 0; i < Program.TestCollectionSize - 1; i++)
             {
                 item = item.Next;
             }
 
-            if (item.Value != Program.TestSize - 1)
+            if (item.Value != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -79,17 +79,17 @@ namespace ConsoleApplication1
         public bool GetItemXMinusOneThenGetItemXMinusTwo()
         {
             var item = CollectionOfItems.First;
-            for (int i = 0; i < Program.TestSize - 1; i++)
+            for (int i = 0; i < Program.TestCollectionSize - 1; i++)
             {
                 item = item.Next;
             }
 
-            if (item.Value != Program.TestSize - 1)
+            if (item.Value != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
 
-            if (item.Previous.Value != Program.TestSize - 2)
+            if (item.Previous.Value != Program.TestCollectionSize - 2)
             {
                 throw new Exception();
             }

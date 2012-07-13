@@ -25,7 +25,7 @@ namespace ConsoleApplication1
         public SortedSetBattle()
         {
             var x = new SortedSet<int>();
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.Add(i);
             }
@@ -51,7 +51,7 @@ namespace ConsoleApplication1
         public bool UnknownSizeInsertSpeed()
         {
             var x = new SortedSet<int>();
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.Add(i);
             }
@@ -71,7 +71,7 @@ namespace ConsoleApplication1
             int result = 0;
             foreach (var item in CollectionOfItems)
             {
-                if (counter == Program.TestSize - 1)
+                if (counter == Program.TestCollectionSize - 1)
                 {
                     result = item;
                     break;
@@ -80,7 +80,7 @@ namespace ConsoleApplication1
                 counter++;
             }
 
-            if (result != Program.TestSize - 1)
+            if (result != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -95,7 +95,7 @@ namespace ConsoleApplication1
             int result = 0;
             foreach (var item in CollectionOfItems)
             {
-                if (counter == Program.TestSize - 1)
+                if (counter == Program.TestCollectionSize - 1)
                 {
                     result = item;
                     break;
@@ -104,7 +104,7 @@ namespace ConsoleApplication1
                 counter++;
             }
 
-            if (result != Program.TestSize - 1)
+            if (result != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -113,7 +113,7 @@ namespace ConsoleApplication1
             result = 0;
             foreach (var item in CollectionOfItems)
             {
-                if (counter == Program.TestSize - 2)
+                if (counter == Program.TestCollectionSize - 2)
                 {
                     result = item;
                     break;
@@ -122,7 +122,7 @@ namespace ConsoleApplication1
                 counter++;
             }
 
-            if (result != Program.TestSize - 2)
+            if (result != Program.TestCollectionSize - 2)
             {
                 throw new Exception();
             }

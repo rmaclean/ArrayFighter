@@ -13,8 +13,8 @@ namespace ConsoleApplication1
 
         public ArrayListBattle()
         {
-            var x = new ArrayList(Program.TestSize);
-            for (int i = 0; i < Program.TestSize; i++)
+            var x = new ArrayList(Program.TestCollectionSize);
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.Add(i);
             }
@@ -33,8 +33,8 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool KnownSizeInsertSpeed()
         {
-            var x = new ArrayList(Program.TestSize);
-            for (int i = 0; i < Program.TestSize; i++)
+            var x = new ArrayList(Program.TestCollectionSize);
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.Add(i);
             }
@@ -46,7 +46,7 @@ namespace ConsoleApplication1
         public bool UnknownSizeInsertSpeed()
         {
             var x = new ArrayList(4);
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x.Add(i);
             }
@@ -57,7 +57,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool ReadEveryItemForward()
         {
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 if ((int)CollectionOfItems[i] != i)
                 {
@@ -71,7 +71,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOne()
         {
-            if ((int)CollectionOfItems[Program.TestSize - 1] != Program.TestSize - 1)
+            if ((int)CollectionOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -82,12 +82,12 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOneThenGetItemXMinusTwo()
         {
-            if ((int)CollectionOfItems[Program.TestSize - 1] != Program.TestSize - 1)
+            if ((int)CollectionOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
 
-            if ((int)CollectionOfItems[Program.TestSize - 2] != Program.TestSize - 2)
+            if ((int)CollectionOfItems[Program.TestCollectionSize - 2] != Program.TestCollectionSize - 2)
             {
                 throw new Exception();
             }

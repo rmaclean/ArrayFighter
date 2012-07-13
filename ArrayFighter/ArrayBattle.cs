@@ -12,8 +12,8 @@ namespace ConsoleApplication1
 
         public ArrayBattle()
         {
-            var x = new int[Program.TestSize];
-            for (int i = 0; i < Program.TestSize; i++)
+            var x = new int[Program.TestCollectionSize];
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x[i] = i;
             }
@@ -26,8 +26,8 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool KnownSizeInsertSpeed()
         {
-            var x = new int[Program.TestSize];
-            for (int i = 0; i < Program.TestSize; i++)
+            var x = new int[Program.TestCollectionSize];
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 x[i] = i;
             }
@@ -44,7 +44,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool ReadEveryItemForward()
         {
-            for (int i = 0; i < Program.TestSize; i++)
+            for (int i = 0; i < Program.TestCollectionSize; i++)
             {
                 if (ArrayOfItems[i] != i)
                 {
@@ -58,7 +58,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOne()
         {
-            if (ArrayOfItems[Program.TestSize - 1] != Program.TestSize - 1)
+            if (ArrayOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -69,12 +69,12 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOneThenGetItemXMinusTwo()
         {
-            if (ArrayOfItems[Program.TestSize - 1] != Program.TestSize - 1)
+            if (ArrayOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
 
-            if (ArrayOfItems[Program.TestSize - 2] != Program.TestSize - 2)
+            if (ArrayOfItems[Program.TestCollectionSize - 2] != Program.TestCollectionSize - 2)
             {
                 throw new Exception();
             }

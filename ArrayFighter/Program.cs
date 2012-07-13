@@ -8,7 +8,8 @@ namespace ConsoleApplication1
 {
     class Program
     {
-        public const int TestSize = 10000;
+        public const int TestCollectionSize = 1000000;
+        public const int TestIerationSize = 1000;
         public static IEnumerable<KeyValuePair<string, int>> AlphabetBase { get; set; }
         public static int RPosition { get; set; }
 
@@ -174,15 +175,17 @@ namespace ConsoleApplication1
                         }
                 }
 
-                var knownSizeInsertSpeed = new List<TimeSpan?>(Program.TestSize);
-                var unknownSizeInsertSpeed = new List<TimeSpan?>(Program.TestSize);
-                var readEveryItemForward = new List<TimeSpan?>(Program.TestSize);
-                var getItem100 = new List<TimeSpan?>(Program.TestSize);
-                var getItem100ThenGetItem99 = new List<TimeSpan?>(Program.TestSize);
-                var findItemWithKey = new List<TimeSpan?>(Program.TestSize);
-                var insertAtZero = new List<TimeSpan?>(Program.TestSize);
+                Console.WriteLine("Testing with: {0}", battle.GetType().Name);
 
-                for (int i = 0; i < Program.TestSize; i++)
+                var knownSizeInsertSpeed = new List<TimeSpan?>(Program.TestCollectionSize);
+                var unknownSizeInsertSpeed = new List<TimeSpan?>(Program.TestCollectionSize);
+                var readEveryItemForward = new List<TimeSpan?>(Program.TestCollectionSize);
+                var getItem100 = new List<TimeSpan?>(Program.TestCollectionSize);
+                var getItem100ThenGetItem99 = new List<TimeSpan?>(Program.TestCollectionSize);
+                var findItemWithKey = new List<TimeSpan?>(Program.TestCollectionSize);
+                var insertAtZero = new List<TimeSpan?>(Program.TestCollectionSize);
+
+                for (int i = 0; i < Program.TestIerationSize; i++)
                 {
                     knownSizeInsertSpeed.Add(Test(battle.KnownSizeInsertSpeed));
                     unknownSizeInsertSpeed.Add(Test(battle.UnknownSizeInsertSpeed));
