@@ -1,15 +1,27 @@
-﻿using System;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace ConsoleApplication1
 {
-    sealed class ListTBattle : IBattle
+    internal sealed class ListTBattle : IBattle
     {
-        private List<int> CollectionOfItems;
-        private List<KeyValuePair<string, int>> AlphabetCollection;
-        private List<int> InsertZeroCollection;
+        private List<int> _collectionOfItems;
+        private List<KeyValuePair<string, int>> _alphabetCollection;
+        private List<int> _insertZeroCollection;
 
         public ListTBattle()
         {
@@ -19,10 +31,10 @@ namespace ConsoleApplication1
                 x.Add(i);
             }
 
-            this.CollectionOfItems = x;
+            _collectionOfItems = x;
 
-            this.AlphabetCollection = new List<KeyValuePair<string, int>>(Program.AlphabetBase);
-            this.InsertZeroCollection = new List<int>(CollectionOfItems);
+            _alphabetCollection = new List<KeyValuePair<string, int>>(Program.AlphabetBase);
+            _insertZeroCollection = new List<int>(_collectionOfItems);
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
@@ -51,10 +63,10 @@ namespace ConsoleApplication1
 
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool ReadEveryItemForward()
-        {            
+        {
             for (int i = 0; i < Program.TestCollectionSize; i++)
             {
-                if (CollectionOfItems[i] != i)
+                if (_collectionOfItems[i] != i)
                 {
                     throw new Exception();
                 }
@@ -66,7 +78,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOne()
         {
-            if (CollectionOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
+            if (_collectionOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -77,12 +89,12 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOneThenGetItemXMinusTwo()
         {
-            if (CollectionOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
+            if (_collectionOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
 
-            if (CollectionOfItems[Program.TestCollectionSize - 2] != Program.TestCollectionSize - 2)
+            if (_collectionOfItems[Program.TestCollectionSize - 2] != Program.TestCollectionSize - 2)
             {
                 throw new Exception();
             }
@@ -93,7 +105,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool FindItemWithKey()
         {
-            var item = AlphabetCollection.First(_ => _.Key == "R");
+            var item = _alphabetCollection.First(_ => _.Key == "R");
             if (item.Value != Program.RPosition)
             {
                 throw new Exception();
@@ -105,7 +117,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool InsertAtZero()
         {
-            InsertZeroCollection.Insert(0, Int16.MaxValue);
+            _insertZeroCollection.Insert(0, Int16.MaxValue);
             return true;
         }
     }

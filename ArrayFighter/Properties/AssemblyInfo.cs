@@ -1,4 +1,16 @@
-﻿using System.Reflection;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,7 +22,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ConsoleApplication1")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright \u00A9  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,14 +1,26 @@
-﻿using System;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace ConsoleApplication1
 {
-    sealed class ArrayBattle : IBattle
+    internal sealed class ArrayBattle : IBattle
     {
-        private int[] ArrayOfItems;
-        private KeyValuePair<string, int>[] AlphabetArray;
+        private int[] _arrayOfItems;
+        private KeyValuePair<string, int>[] _alphabetArray;
 
         public ArrayBattle()
         {
@@ -18,9 +30,9 @@ namespace ConsoleApplication1
                 x[i] = i;
             }
 
-            this.ArrayOfItems = x;
+            _arrayOfItems = x;
 
-            this.AlphabetArray = Program.AlphabetBase.ToArray();
+            _alphabetArray = Program.AlphabetBase.ToArray();
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
@@ -46,7 +58,7 @@ namespace ConsoleApplication1
         {
             for (int i = 0; i < Program.TestCollectionSize; i++)
             {
-                if (ArrayOfItems[i] != i)
+                if (_arrayOfItems[i] != i)
                 {
                     throw new Exception();
                 }
@@ -58,7 +70,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOne()
         {
-            if (ArrayOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
+            if (_arrayOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
@@ -69,12 +81,12 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOneThenGetItemXMinusTwo()
         {
-            if (ArrayOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
+            if (_arrayOfItems[Program.TestCollectionSize - 1] != Program.TestCollectionSize - 1)
             {
                 throw new Exception();
             }
 
-            if (ArrayOfItems[Program.TestCollectionSize - 2] != Program.TestCollectionSize - 2)
+            if (_arrayOfItems[Program.TestCollectionSize - 2] != Program.TestCollectionSize - 2)
             {
                 throw new Exception();
             }
@@ -86,11 +98,11 @@ namespace ConsoleApplication1
         public bool FindItemWithKey()
         {
             KeyValuePair<string, int> item = default(KeyValuePair<string, int>);
-            for (int i = 0; i < AlphabetArray.Length; i++)
+            for (int i = 0; i < _alphabetArray.Length; i++)
             {
-                if (AlphabetArray[i].Key == "R")
+                if (_alphabetArray[i].Key == "R")
                 {
-                    item = AlphabetArray[i];
+                    item = _alphabetArray[i];
                 }
             }
 

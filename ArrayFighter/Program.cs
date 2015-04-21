@@ -1,4 +1,16 @@
-﻿using System;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,7 +18,7 @@ using System.Windows.Forms;
 
 namespace ConsoleApplication1
 {
-    class Program
+    internal class Program
     {
         public const int TestCollectionSize = 1000000;
         public const int TestIerationSize = 1000;
@@ -38,7 +50,7 @@ namespace ConsoleApplication1
             AlphabetBase = items.AsEnumerable();
         }
 
-        enum Fighter
+        private enum Fighter
         {
             Array,
             ArrayList,
@@ -50,7 +62,7 @@ namespace ConsoleApplication1
             Quit
         }
 
-        static Fighter SelectFighter()
+        private static Fighter SelectFighter()
         {
             Console.Clear();
             Console.WriteLine("Array versus the world");
@@ -123,7 +135,7 @@ namespace ConsoleApplication1
         }
 
         [STAThread]
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (Debugger.IsAttached)
             {
@@ -241,7 +253,7 @@ namespace ConsoleApplication1
         }
     }
 
-    interface IBattle
+    internal interface IBattle
     {
         /// <summary>
         /// Create a collection of size Program.TestSize and insert Program.TestSize ints into it

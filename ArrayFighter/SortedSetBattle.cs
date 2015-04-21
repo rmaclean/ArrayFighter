@@ -1,4 +1,16 @@
-﻿using System;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,11 +19,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    sealed class SortedSetBattle : IBattle
+    internal sealed class SortedSetBattle : IBattle
     {
-        private SortedSet<int> CollectionOfItems;
-        private SortedSet<KeyValuePair<string, int>> AlphabetCollection;
-        private SortedSet<int> InsertZeroCollection;
+        private SortedSet<int> _collectionOfItems;
+        private SortedSet<KeyValuePair<string, int>> _alphabetCollection;
+        private SortedSet<int> _insertZeroCollection;
 
         private class KeyValueComparer : IComparer<KeyValuePair<string, int>>
         {
@@ -30,15 +42,15 @@ namespace ConsoleApplication1
                 x.Add(i);
             }
 
-            this.CollectionOfItems = x;
+            _collectionOfItems = x;
 
-            this.AlphabetCollection = new SortedSet<KeyValuePair<string, int>>(new KeyValueComparer());
+            _alphabetCollection = new SortedSet<KeyValuePair<string, int>>(new KeyValueComparer());
             foreach (var item in Program.AlphabetBase)
             {
-                AlphabetCollection.Add(item);
+                _alphabetCollection.Add(item);
             }
 
-            this.InsertZeroCollection = new SortedSet<int>(CollectionOfItems);
+            _insertZeroCollection = new SortedSet<int>(_collectionOfItems);
         }
 
 
@@ -69,7 +81,7 @@ namespace ConsoleApplication1
         {
             int counter = 0;
             int result = 0;
-            foreach (var item in CollectionOfItems)
+            foreach (var item in _collectionOfItems)
             {
                 if (counter == Program.TestCollectionSize - 1)
                 {
@@ -93,7 +105,7 @@ namespace ConsoleApplication1
         {
             int counter = 0;
             int result = 0;
-            foreach (var item in CollectionOfItems)
+            foreach (var item in _collectionOfItems)
             {
                 if (counter == Program.TestCollectionSize - 1)
                 {
@@ -111,7 +123,7 @@ namespace ConsoleApplication1
 
             counter = 0;
             result = 0;
-            foreach (var item in CollectionOfItems)
+            foreach (var item in _collectionOfItems)
             {
                 if (counter == Program.TestCollectionSize - 2)
                 {
@@ -133,7 +145,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool FindItemWithKey()
         {
-            var item = AlphabetCollection.First(_ => _.Key == "R");
+            var item = _alphabetCollection.First(_ => _.Key == "R");
             if (item.Value != Program.RPosition)
             {
                 throw new Exception();

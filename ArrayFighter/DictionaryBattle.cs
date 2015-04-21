@@ -1,18 +1,30 @@
-﻿using System;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace ConsoleApplication1
 {
-    sealed class DictionaryBattle : IBattle
+    internal sealed class DictionaryBattle : IBattle
     {
-        private Dictionary<string, int> AlphabetCollection;
+        private Dictionary<string, int> _alphabetCollection;
         public DictionaryBattle()
         {
-            this.AlphabetCollection = new Dictionary<string, int>();
+            _alphabetCollection = new Dictionary<string, int>();
             foreach (var item in Program.AlphabetBase)
             {
-                AlphabetCollection.Add(item.Key, item.Value);
+                _alphabetCollection.Add(item.Key, item.Value);
             }
         }
 
@@ -44,7 +56,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool FindItemWithKey()
         {
-            var item = AlphabetCollection["R"];
+            var item = _alphabetCollection["R"];
             if (item != Program.RPosition)
             {
                 throw new Exception();

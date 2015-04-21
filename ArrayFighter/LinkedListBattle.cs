@@ -1,15 +1,27 @@
-﻿using System;
+﻿// Array Fighter 
+// 
+// 	Authors:	Robert MacLean <robert@sadev.co.za>
+// 
+// 	This program is free software; you can redistribute it and/or
+// 	modify it under the terms of the Microsoft Public License 
+//     (MS-PL).
+// 
+// 10:21 AM 2015-04-20 SAST Robert MacLean
+//                          Playing around with Code Formatter
+//  
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace ConsoleApplication1
 {
-    sealed class LinkedListBattle : IBattle
+    internal sealed class LinkedListBattle : IBattle
     {
-        private LinkedList<int> CollectionOfItems;
-        private LinkedList<int> InsertZeroCollection;
-        private LinkedList<KeyValuePair<string, int>> AlphabetCollection;
+        private LinkedList<int> _collectionOfItems;
+        private LinkedList<int> _insertZeroCollection;
+        private LinkedList<KeyValuePair<string, int>> _alphabetCollection;
 
         public LinkedListBattle()
         {
@@ -19,14 +31,14 @@ namespace ConsoleApplication1
                 x.AddLast(i);
             }
 
-            this.CollectionOfItems = x;
+            _collectionOfItems = x;
 
-            this.AlphabetCollection = new LinkedList<KeyValuePair<string, int>>();
+            _alphabetCollection = new LinkedList<KeyValuePair<string, int>>();
             foreach (var item in Program.AlphabetBase)
             {
-                AlphabetCollection.AddLast(item);
+                _alphabetCollection.AddLast(item);
             }
-            this.InsertZeroCollection = new LinkedList<int>(this.CollectionOfItems);
+            _insertZeroCollection = new LinkedList<int>(_collectionOfItems);
         }
 
         public bool KnownSizeInsertSpeed()
@@ -61,7 +73,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOne()
         {
-            var item = CollectionOfItems.First;
+            var item = _collectionOfItems.First;
             for (int i = 0; i < Program.TestCollectionSize - 1; i++)
             {
                 item = item.Next;
@@ -78,7 +90,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool GetItemXMinusOneThenGetItemXMinusTwo()
         {
-            var item = CollectionOfItems.First;
+            var item = _collectionOfItems.First;
             for (int i = 0; i < Program.TestCollectionSize - 1; i++)
             {
                 item = item.Next;
@@ -100,7 +112,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool FindItemWithKey()
         {
-            var item = AlphabetCollection.First(_ => _.Key == "R");
+            var item = _alphabetCollection.First(_ => _.Key == "R");
             if (item.Value != Program.RPosition)
             {
                 throw new Exception();
@@ -112,7 +124,7 @@ namespace ConsoleApplication1
         [MethodImpl(MethodImplOptions.NoInlining)]
         public bool InsertAtZero()
         {
-            InsertZeroCollection.AddFirst(Int16.MaxValue);
+            _insertZeroCollection.AddFirst(Int16.MaxValue);
             return true;
         }
     }
